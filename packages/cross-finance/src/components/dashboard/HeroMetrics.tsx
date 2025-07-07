@@ -23,7 +23,7 @@ function HeroMetric({ title, value, change, changeLabel, icon, variant = 'defaul
 
   return (
     <Card className={cn("overflow-hidden bg-gradient-to-br", variantStyles[variant])}>
-      <CardContent className="p-6">
+      <CardContent className="p-6 text-black">
         <div className="flex items-start justify-between">
           <div className="space-y-2">
             <p className="text-sm font-medium text-muted-foreground">{title}</p>
@@ -79,7 +79,7 @@ export function HeroMetrics({
         change={8.2}
         changeLabel="vs last period"
         icon={<TrendingUp className="h-6 w-6 text-emerald-600" />}
-        variant="success"
+        variant="default"
       />
       
       <HeroMetric
@@ -102,7 +102,7 @@ export function HeroMetrics({
         change={5.2}
         changeLabel="vs yesterday"
         icon={<Wallet className="h-6 w-6 text-amber-600" />}
-        variant="warning"
+        variant="default"
       />
     </div>
   );
