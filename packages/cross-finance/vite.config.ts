@@ -10,14 +10,22 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  preview: {
+    port: 8080,
+  },
   plugins: [
     react(),
     federation({
-      name: 'cross_finance_host', // A unique name for your host app
+      name: 'cross_finance_host',
       remotes: {
-        fx_compass: '/fx-compass-mfe/assets/remoteEntry.js', // Point to your FX Compass remoteEntry.js
+        'fx-compass': mode === 'production' 
+          ? '/fx-compass-mfe/assets/remoteEntry.js'
+          : 'http://localhost:8081/assets/remoteEntry.js',
+        'bybit-explorer': mode === 'production'
+          ? '/bybit-explorer-mfe/assets/remoteEntry.js'
+          : 'http://localhost:8082/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom'], // Share common dependencies
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     mode === 'development' &&
     componentTagger(),

@@ -15,18 +15,24 @@ export default defineConfig(({ mode }) => ({
       }
     },
     host: "::",
-    port: 5001,
-    allowedHosts: ['plankton-app-gd57a.ondigitalocean.app'] //added this    
+    port: 8081,
+    strictPort: true,
+    cors: true,
+    allowedHosts: ['plankton-app-gd57a.ondigitalocean.app']
+  },
+  preview: {
+    port: 8081,
+    strictPort: true,
   },
   plugins: [
     react(),
     federation({
-      name: 'fx_compass_mfe', 
-      filename: 'remoteEntry.js', 
+      name: 'fx-compass',
+      filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App.tsx', 
+        './App': './src/App.tsx',
       },
-      shared: ['react', 'react-dom'], // Share common dependencies
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     mode === 'development' &&
     componentTagger(),
