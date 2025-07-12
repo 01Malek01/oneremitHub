@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 
-const BybitExplorerApp = lazy(() => import('bybit-explorer/App'));
+const BybitExplorerApp = lazy(() => import('bybit_explorer/App'));
 
 export default function BybitExplorer() {
   return (

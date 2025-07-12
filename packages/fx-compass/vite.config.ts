@@ -46,7 +46,12 @@ export default defineConfig(({ mode }) => ({
     target: 'esnext', // Important for Module Federation
     minify: false, // Easier for debugging initially
     cssCodeSplit: false, // Helps manage CSS if needed
-    outDir:'../cross-finance/public/fx-compass-mfe'
+    outDir:'../cross-finance/public/fx-compass-mfe',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Disable manual chunks to avoid issues with top-level await
+      },
+    },
   },
 }));
 
