@@ -38,11 +38,11 @@ export default defineConfig(({ mode }) => ({
     minify: false, // Easier for debugging initially
     cssCodeSplit: false, // Helps manage CSS if needed
     outDir: '../cross-finance/public/bybit-explorer-mfe',
-    rollupOptions: {
-      output: {
-        manualChunks: undefined, // Disable manual chunks to avoid issues with top-level await
-      },
-    },
+    // rollupOptions: {
+    //   output: {
+    //     manualChunks: undefined, // Disable manual chunks to avoid issues with top-level await
+    //   },
+    // },
     commonjsOptions: {
       transformMixedEsModules: true,
     },
