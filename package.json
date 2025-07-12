@@ -1,6 +1,6 @@
 {
     "name": "oneremit-hub-monorepo",
-    "version": "1.0.0",
+    "engines": { "node": ">=20.0.0" },
     "private": true,
     "scripts": {
       "build:fx-compass": "npm --prefix packages/fx-compass run build",
